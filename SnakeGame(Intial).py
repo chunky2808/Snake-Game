@@ -33,6 +33,7 @@ green = pygame.Color(0,255,0)# Snake # (r,g,b)red green blue
 black = pygame.Color(0,0,0) #score
 white = pygame.Color(255,255,255) #background
 brown = pygame.Color(165,42,42) #food
+yellow = pygame.Color(255,255,0)
 #Colors
 
 
@@ -59,7 +60,7 @@ score = 0
 #Game over Function
 def gameOver():#cantuse print to print something as it print on console not on screen
 	myFont = pygame.font.SysFont('comicsansms',72) #name and size of font
-	Gosurf = myFont.render('Game Over!!', True , red)#require 4 argument text,anti aliasing,color,background
+	Gosurf = myFont.render('GAME OVER!!', True , red)#require 4 argument text,anti aliasing,color,background
 	Gorect = Gosurf.get_rect() #rectangular component of game
 	Gorect.midtop = (360, 15) #tuple (x,y) coordinate
 	playSurface.blit(Gosurf,Gorect)
@@ -73,7 +74,7 @@ def gameOver():#cantuse print to print something as it print on console not on s
 
 def showScore(choice=1):#showing score
 	sFont = pygame.font.SysFont('comicsansms',26) #name and size of font
-	Ssurf = sFont.render('Score : {0}'.format(score), True , black)#require 4 argument text,anti aliasing,color,background
+	Ssurf = sFont.render('Score : {0}'.format(score), True , green)#require 4 argument text,anti aliasing,color,background
 	Srect = Ssurf.get_rect() #rectangular component of game
 	if choice == 1:
 		Srect.midtop = (80,10)#shows score on top left corner
@@ -152,14 +153,14 @@ while 1: #infinite Loop
 	foodSpawn = True
  	    
 	#Background
-	playSurface.fill(white)#fill entire game window with specific color
+	playSurface.fill(black)#fill entire game window with specific color
 	
 	#Draw Snake
 	for pos in snakeBody:
 		#pygame.Rect(pos[0],pos[1],10,10)#(x,y,sizex,sizey)
-		pygame.draw.rect(playSurface, green , pygame.Rect(pos[0],pos[1],10,10) ) #draw snake require 3 argument player surface,color,component with x and y axis
+		pygame.draw.rect(playSurface, white , pygame.Rect(pos[0],pos[1],10,10) ) #draw snake require 3 argument player surface,color,component with x and y axis
 	
-	pygame.draw.rect(playSurface, brown , pygame.Rect(foodPos[0],foodPos[1],10,10) ) #draw food	
+	pygame.draw.rect(playSurface, yellow , pygame.Rect(foodPos[0],foodPos[1],10,10) ) #draw food	
 
   #Draw snake
 
