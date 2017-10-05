@@ -62,6 +62,10 @@ foodSpawn = True
 direction =  'RIGHT'
 changeto = direction
 
+
+icon = pygame.image.load('images/a.jpg')
+pygame.display.set_icon(icon)
+
 score = 0
 
 #Game over Function
